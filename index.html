@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<!--yfcyclic official vaults-->
+<!--v2.0-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="title" content="Cyclic Finance">
+		<meta name="description" content="Providing balanced DeFi for everyone.">
+		<link rel="shortcut icon" href="images/yfcyclicvault.png">
+		<title>Cyclic Vaults</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/background.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@2.0.2/dist/gridstack.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/gridstack@2.0.2/dist/gridstack.all.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+
+
+<div class="grid-stack">
+	<div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="4" data-gs-height="2">
+		<div class="grid-stack-item-content">
+			<div class="center_elements">
+				<div id="logoContainer">
+					<img class="mainLogo" src="images/CYCL.png" alt="" style="width:65%;height:auto;">
+					<img class="mainImage" src="images/cyclic.png" alt="" style="width:55%;height:auto;">
+                </div>
+			</div>
+		</div>
+    </div>
+	<div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="4" data-gs-height="2">
+		<div class="grid-stack-item-content box-1">
+			<div class="center_elements">
+				<button class="pay-button" id="status" onclick="clicked(this.id)"></button>
+				<h5>Current AMP Value: - </h5>
+				<h5>Total Value Locked: - </h5>
+			</div>
+		</div>
+    </div>
+	<div class="grid-stack-item" data-gs-x="8" data-gs-y="0" data-gs-width="4" data-gs-height="2">
+		<div class="grid-stack-item-content box-2">
+			<div class="center_elements">
+				<h5>Current Vault Mode:  </h5>
+				<img src="images/gold.png" alt="" style="width:auto;height:50px;">
+			</div>
+		</div>
+    </div>
+	<div class="grid-stack-item" data-gs-x="0" data-gs-y="2" data-gs-width="4" data-gs-height="6">
+		<div class="grid-stack-item-content">
+			<div class="center_elements">
+				<h1><img src="images/USDT.PNG" width="auto" height="45px" vertical-align="middle"> USDT</h1>
+				<h5>Total USDT Locked: - </h5>
+				<h5>ㅤCurrent APY: -</h5>
+				<hr size="2" width="95%" color="white">  
+				<div class="grid-container">
+				  <div class="left"><img src="images/in.PNG" alt="" style="width:95%;height:240px;float:right;"></div>
+					<div class="center_elements middle">
+						<button class="CTA btn btn-info btn-lg" id="stake-usdt" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake USDT</button><br>
+						<button class="CTA btn btn-info btn-lg" id="withdraw-usdt" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw USDT</button><br>
+						<button class="CTA btn btn-info btn-lg" id="stake-yfusdt" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake yfUSDT</button><br>
+						<button class="CTA btn btn-info btn-lg" id="withdraw-yfusdt" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw yfUSDT</button><br>
+						<button class="CTA btn btn-info btn-lg" id="collect-usdt" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Collect Rewards</button><br>
+						<button onclick="location.href='https://app.uniswap.org/#/swap?inputCurrency=0xdac17f958d2ee523a2206206994597c13d831ec7'" class="CTA btn btn-info btn-lg" id="UniUSDT">Uniswap</button><br>
+						<h5>Total USDT Staked: - </h5>
+						<h5>Total CYCL earned: - </h5>
+					</div>
+				  <div class="right"><img src="images/out.PNG" alt="" style="width:65%;height:250px;float:left;"></div>  
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="grid-stack-item" data-gs-x="4" data-gs-y="2" data-gs-width="4" data-gs-height="6">
+		<div class="grid-stack-item-content">
+			<div class="center_elements">
+				<h1><img src="images/USDC.PNG" width="auto" height="45px" vertical-align="middle"> USDC</h1>
+				<h5>Total USDC Locked: - </h5>
+				<h5>ㅤCurrent APY: -</h5>
+				<hr size="2" width="95%" color="white">  
+				<div class="grid-container">
+				  <div class="left"><img src="images/in.PNG" alt="" style="width:95%;height:240px;float:right;"></div>
+					<div class="center_elements middle">
+						<button class="CTA btn btn-info btn-lg" id="stake-usdc" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake USDC</button><br>
+						<button class="CTA btn btn-info btn-lg" id="withdraw-usdc" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw USDC</button><br>
+						<button class="CTA btn btn-info btn-lg" id="stake-yfusdc" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake yfUSDC</button><br>
+						<button class="CTA btn btn-info btn-lg" id="withdraw-yfusdc" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw yfUSDC</button><br>
+						<button class="CTA btn btn-info btn-lg" id="collect-usdc" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Collect Rewards</button><br>
+						<button onclick="location.href='https://app.uniswap.org/#/swap?outputCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'" class="CTA btn btn-info btn-lg" id="UniUSDC">Uniswap</button><br>
+						<h5>Total USDC Staked: - </h5>
+						<h5>Total CYCL earned: - </h5>
+					</div>
+				  <div class="right"><img src="images/out.PNG" alt="" style="width:65%;height:250px;float:left;"></div>  
+				</div>
+			</div>
+		</div>
+    </div>
+	<div class="grid-stack-item" data-gs-x="8" data-gs-y="2" data-gs-width="4" data-gs-height="6">
+		<div class="grid-stack-item-content">
+			<div class="center_elements">
+				<h1><img src="images/DAI.PNG" width="auto" height="45px" vertical-align="middle"> DAI</h1>
+				<h5>Total DAI Locked: - </h5>
+				<h5>ㅤCurrent APY: -</h5>
+				<hr size="2" width="95%" color="white">  
+				<div class="grid-container">
+				  <div class="left"><img src="images/in.PNG" alt="" style="width:95%;height:240px;float:right;"></div>
+					<div class="center_elements middle">
+						<button class="CTA btn btn-info btn-lg" id="stake-dai" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake DAI</button><br>
+						<button class="CTA btn btn-info btn-lg" id="withdraw-dai" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw DAI</button><br>
+						<button class="CTA btn btn-info btn-lg" id="stake-yfdai" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake yfDAI</button><br>
+						<button class="CTA btn btn-info btn-lg" id="withdraw-yfdai" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw yfDAI</button><br>
+						<button class="CTA btn btn-info btn-lg" id="collect-dai" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Collect Rewards</button><br>
+						<button onclick="location.href='https://app.uniswap.org/#/swap?outputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f'" class="CTA btn btn-info btn-lg" id="UniUSDC">Uniswap</button><br>
+						<h5>Total DAI Staked: - </h5>
+						<h5>Total CYCL earned: - </h5>
+					</div>
+				  <div class="right"><img src="images/out.PNG" alt="" style="width:65%;height:250px;float:left;"></div>  
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="grid-stack-item" data-gs-x="0" data-gs-y="8" data-gs-width="6" data-gs-height="4">
+		<div class="grid-stack-item-content">
+			<div class="grid-container">
+			  <div class="left"> </div>
+				<div class="center_elements middle">
+				<h1><img src="images/CYCL.PNG" width="auto" height="45px" vertical-align="middle"> CYCL</h1>
+					<button class="CTA btn btn-info btn-lg" id="stake-cycl" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake CYCL</button><br>
+					<button class="CTA btn btn-info btn-lg" id="withdraw-cycl" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw All CYCL</button><br>
+					<button class="CTA btn btn-info btn-lg" id="collect-cycl" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Collect Rewards</button><br>
+					<button onclick="location.href='https://app.uniswap.org/#/swap?inputCurrency=0x69f08bd1929ef62ecbe947d6bf76a7b7cdba55e8&outputCurrency=ETH'" class="CTA btn btn-info btn-lg" id="UniUSDC">Uniswap</button><br>
+					<h5>Total CYCL Staked: - </h5>
+					<h5>Total CYCL earned: - </h5>
+				</div>
+			  <div class="right"></div>  
+			</div>
+		</div>
+    </div>
+	<div class="grid-stack-item" data-gs-x="6" data-gs-y="8" data-gs-width="6" data-gs-height="4">
+		<div class="grid-stack-item-content">
+			<div class="grid-container">
+			  <div class="left"></div>
+				<div class="center_elements middle">
+				<h1><img src="images/LP.PNG" width="auto" height="45px" vertical-align="middle"> LP Tokens</h1>
+					<button class="CTA btn btn-info btn-lg" id="stake-lp" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Stake LP Tokens</button><br>
+					<button class="CTA btn btn-info btn-lg" id="withdraw-lp" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Withdraw LP Tokens</button><br>
+					<button class="CTA btn btn-info btn-lg" id="collect-lp" onclick="clicked(this.id)" type="button" data-toggle="modal" data-target="#myModal">Collect Rewards</button><br>
+					<button onclick="location.href='https://app.uniswap.org/#/add/0x69f08bd1929ef62ecbe947d6bf76a7b7cdba55e8/ETH'" class="CTA btn btn-info btn-lg" id="UniUSDC">Uniswap</button><br>
+					<h5>Total LP Tokens Staked: - </h5>
+					<h5>Total CYCL earned: - </h5>
+				</div>
+			  <div class="right"></div>  
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content  center_elements">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modalName" ></h4>
+        </div>
+        <div class="modal-body">
+			<img id="modalImage" alt="" style="width:18%;height:auto;padding-bottom:20px;">
+			<p id="modalDesc"></p>
+			<div  style="display:inline-block;">
+				<input id="modalValue" style="margin: 0 auto;" value="0"></input>
+				<button type="button" id="modalAction" onclick="clicked(this.id)" class="btn btn-default"></button>
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<canvas id="c"></canvas>
+<script type="text/javascript">var grid = GridStack.init();</script>
+<script src="js/background.js"></script>

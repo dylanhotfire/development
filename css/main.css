@@ -1,0 +1,122 @@
+.grid-stack{
+	margin: 30px;
+}
+
+.grid-stack-item {
+background-color: black;
+opacity: 0.85;
+border: 2px solid #000;
+border-radius: 25px;
+box-shadow: 2px 2px 2px 1px #fff inset;
+}
+
+h1, h2, h3, h4, h5{
+color: white;
+text-align: center;
+vertical-align: middle;
+}
+
+h5 {
+font-size: 18px;	
+}
+
+.modal-title{
+	color: black;
+}
+
+#status {
+width: auto;
+height: 30px;
+}	
+
+#usdc_input {
+	
+}	
+
+.box-1 {
+	padding-top: 35px;
+}
+.box-2 {
+	padding-top: 25px;
+}
+
+.btn{
+	background-color: white;
+}
+
+.name-pic img{
+	 width: auto;
+	 height: 30px;
+	 vertical-align: middle;
+}
+
+#status, .CTA{
+display:inline-block;
+border:0.16em solid rgba(255,255,255,0);
+border-radius:0.5em;
+box-sizing: border-box;
+text-decoration:none;
+font-weight:300;
+color:black;
+text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+text-align:center;
+transition: all 0.2s;
+margin:0 0.1em 0.1em 0;
+width: 98%;
+}
+#status:hover, .CTA:hover{
+border-color: rgba(255,255,255,1);
+background-color: orange;
+}
+@media all and (max-width:30em){
+	#status, .CTA{
+	display:block;
+    margin:0.2em auto;
+	}
+}
+
+.center_elements {
+text-align: center;
+position: relative;
+}	
+
+#modalValue {
+text-align: center;
+position: relative;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-gap: 15px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.grid-container > div {
+  text-align: center;
+}
+
+#logoContainer{
+    position: relative;
+}
+
+.mainLogo {
+    padding: 50px;
+    -webkit-animation:spin 12s linear infinite;
+    -moz-animation:spin 12s linear infinite;
+    animation:spin 12s linear infinite;
+    image-rendering: auto;
+	z-index: -2;
+	top: -33px;
+	position: relative;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.mainImage {
+	position: absolute;
+	top: 28%;
+	left: 22%;
+}
