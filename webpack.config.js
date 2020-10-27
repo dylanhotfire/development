@@ -15,6 +15,7 @@ module.exports = env => {
     mode: 'development',
     entry: {
       'single-spa.config': './single-spa.config.js',
+      'styles': './scss/index.scss'
     },
     output: {
       publicPath: '/dist/',
@@ -24,8 +25,15 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          use: [
+              {
+                  loader: 'file-loader',
+                  options: { outputPath: 'css/', name: '[name].min.css'}
+              },
+              'sass-loader'
+          ]
         },
         {
           test: /\.(js|jsx)$/,
