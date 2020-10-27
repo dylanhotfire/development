@@ -47,12 +47,14 @@ function init() {
   // if you want a cookie ;)
   // ctx.lineCap = 'round';
 }
+
 function getColor( x ) {
   
   return 'hsl( hue, 80%, 50% )'.replace(
   	'hue', x / w * 360 + frame
   );
 }
+
 function anim() {
   
   window.requestAnimationFrame( anim );
@@ -158,7 +160,7 @@ anim();
 window.addEventListener( 'resize', function() {
   
   w = c.width = window.innerWidth;
-  h = c.height = window.innerHeight;
+  h = c.height = $(window).height();
   starter.x = w / 2;
   starter.y = h / 2;
   
