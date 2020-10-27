@@ -27,6 +27,9 @@ module.exports = env => {
         {
           test: /\.scss$/,
           exclude: /node_modules/,
+          include: [
+            path.resolve(__dirname, 'scss')
+          ],
           use: [
               {
                   loader: 'file-loader',

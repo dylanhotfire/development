@@ -8,7 +8,7 @@ module.exports = {
     sourceType: "module",
     project: "./tsconfig.json",
   },
-  plugins: ["react", "prettier", "jest"],
+  plugins: ["react", "prettier"],
   env: {
     browser: true,
     jasmine: true,
@@ -16,7 +16,7 @@ module.exports = {
   },
   extends: [
     "airbnb-typescript",
-    "plugin:jest/recommended",
+    // "plugin:jest/recommended",
     "prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
     "plugin:prettier/recommended", // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
@@ -26,7 +26,7 @@ module.exports = {
     "require-await": "error",
     "arrow-parens": "off",
     "comma-dangle": "off",
-    "jest/no-standalone-expect": "off",
+    // "jest/no-standalone-expect": "off",
     "import/prefer-default-export": "off",
     "react/no-unescaped-entities": "off",
     "react/jsx-props-no-spreading": "off",
