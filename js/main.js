@@ -49,184 +49,229 @@ let lpContract = web3.eth.contract(lpABI).at("0xC5a7F9C72f33dFBf9B3F2e2dFc8b40bd
 let yfusdtContract = null; 
 let yfusdcContract = null;
 let yfdaiContract = null; 
-let yfcyclContract = null; 
+let yfcyclContract = null;
 let usdtSynthContract = null; 
 let usdcSynthContract = null; 
 let daiSynthContract = null; 
 let cyclSynthContract = null; 
 let lpSynthContract = null; 
 
-function clicked(clicked_id)
+function clicked(clickedId)
   {
-	//Toggle input for collection of rewards
-	var input = document.getElementById("modalValue");
-	if (input.style.display === "none") {
-		input.style.display = "inline-block";
+	// TODO: Extract content source when module loading is supported
+	const stakeUsdtId = 'stake-usdt';
+	const withdrawUsdtId = 'withdraw-usdt';
+	const stakeYusdtId = 'stake-yfusdt';
+	const withdrawYusdtId = 'withdraw-yfusdt';
+	const collectUsdtId = 'collect-usdt';
+	
+	const stakeUsdcId = 'stake-usdc';
+	const withdrawUsdcId = 'withdraw-usdc';
+	const stakeYfUsdcId = 'stake-yfusdc';
+	const withdrawYfusdcId = 'withdraw-yfusdc'; 
+	const collectUsdcId = 'collect-usdc';
+	
+	const stakeDaiId = 'stake-dai'; 
+	const withdrawDaiId = 'withdraw-dai'; 
+	const stakeYfDaiId = 'stake-yfdai'; 
+	const withdrawYfDaiId = 'withdraw-yfdai'; 
+	const collectDaiId = 'collect-dai';
+	
+	const stakeCyclId = 'stake-cycl';
+	const withdrawCyclId = 'withdraw-cycl';
+	const collectCyclId = 'collect-cycl';
+	
+	const stakeLpId = 'stake-lp';
+	const withdrawLpId = 'withdraw-lp';
+	const collectLpId = 'collect-lp';
+	
+	const content = [{
+		id: stakeUsdtId,
+		title: 'Stake USDT',
+		description: 'Stake USDT here and receive yfUSDT.',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/usdt.PNG'
+	},
+	{
+		id: withdrawUsdtId,
+		title: 'Withdraw USDT',
+		description: 'Withdraw USDT and exit the protocol completely.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/usdt.PNG'
+	},
+	{
+		id: stakeYusdtId,
+		title: 'Stake yfUSDT',
+		description: 'Once you have exchanged your USDT for yfUSDT send them here to officially start earning emission rewards.',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/usdt.PNG'
+	},
+	{
+		id: withdrawYusdtId,
+		title: 'Withdraw yfUSDT',
+		description: 'Withdraw your yfUSDT to stop earning emissions.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/usdt.PNG'
+	},
+	{
+		id: collectUsdtId,
+		title: 'Collect CYCL Rewards',
+		description: 'Collect your CYCL emission rewards!',
+		ctaText: 'Collect!',
+		showAmount: false,
+		imsageSrc: 'images/cycl.PNG'
+	},
+	{
+		id: stakeUsdcId,
+		title: 'Stake USDC',
+		description: 'Stake USDC here and receive yfUSDC.',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/usdc.PNG'
+	},
+	{
+		id: withdrawUsdcId,
+		title: 'Withdraw USDC',
+		description: 'Withdraw USDC and exit the protocol completely.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/usdc.PNG'
+	},
+    {
+	    id: stakeYfUsdcId,
+	    title: 'Stake yfUSDC',
+	    description: 'Once you have exchanged your USDC for yfUSDC send them here to officially start earning emission rewards.',
+	    ctaText: 'Stake!',
+	    showAmount: true,
+	    imsageSrc: 'images/usdc.PNG'
+    },
+	{
+		id: withdrawYfusdcId,
+		title: 'Withdraw yfUSDC',
+		description: 'Withdraw your yfUSDC to stop earning emissions.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/usdc.PNG'
+	},
+	{
+		id: collectUsdcId,
+		title: 'Collect CYCL Rewards',
+		description: 'Collect your CYCL emission rewards!',
+		ctaText: 'Collect!',
+		showAmount: false,
+		imsageSrc: 'images/cycl.PNG'
+	},
+	{
+		id: stakeDaiId,
+		title: 'Stake DAI',
+		description: 'Stake DAI here and receive yfDAI.',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/dai.PNG'
+	},
+	{
+		id: withdrawDaiId,
+		title: 'Withdraw DAI',
+		description: 'Withdraw DAI and exit the protocol completely.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/dai.PNG'
+	},
+	{
+		id: stakeYfDaiId,
+		title: 'Stake yfDAI',
+		description: 'Once you have exchanged your DAI for yfDAI send them here to officially start earning emission rewards.',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/dai.PNG'
+	},
+	{
+		id: withdrawYfDaiId,
+		title: 'Withdraw yfDAI',
+		description: 'Withdraw your yfDAI to stop earning emissions.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/dai.PNG'
+	},
+	{
+		id: collectDaiId,
+		title: 'Collect CYCL Rewards',
+		description: 'Collect your CYCL emission rewards!',
+		ctaText: 'Collect!',
+		showAmount: false,
+		imsageSrc: 'images/cycl.PNG'
+	},
+	{
+		id: stakeCyclId,
+		title: 'Stake CYCL',
+		description: 'Stake CYCL here to start earning emissions!',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/cycl.PNG'
+	},
+	{
+		id: withdrawCyclId,
+		title: 'Withdraw CYCL',
+		description: 'Withdraw CYCL and stop earning emissions.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/cycl.PNG'
+	},
+	{
+		id: collectCyclId,
+		title: 'Collect CYCL Rewards',
+		description: 'Collect your CYCL emission rewards!',
+		ctaText: 'Collect!',
+		showAmount: false,
+		imsageSrc: 'images/cycl.PNG'
+	},
+	{
+		id: stakeLpId,
+		title: 'Stake LP Tokens',
+		description: 'Stake LP Tokens here to start earning emissions!',
+		ctaText: 'Stake!',
+		showAmount: true,
+		imsageSrc: 'images/lp.PNG'
+	},
+	{
+		id: withdrawLpId,
+		title: 'Withdraw LP Tokens',
+		description: 'Withdraw LP and stop earning emissions.',
+		ctaText: 'Withdraw',
+		showAmount: true,
+		imsageSrc: 'images/lp.PNG'
+	},
+	{
+		id: collectLpId,
+		title: 'Collect CYCL Rewards',
+		description: 'Collect your CYCL emission rewards!',
+		ctaText: 'Collect!',
+		showAmount: false,
+		imsageSrc: 'images/cycl.PNG'
+	}];
+	
+	const modalContent = _.find(content, ['id', clickedId]);
+
+	if(modalContent) {
+	  $('#modalName').html(modalContent.title);
+	  $('#modalDesc').html(modalContent.description);
+	  $('#modalAction').html(modalContent.ctaText);
+	  $('#modalImage').attr("src", modalContent.imsageSrc);
+
+	  // Display amount to enter unless you're collecting
+	  const input = document.getElementById('modalValue');
+      input.style.display = modalContent.showAmount ? 'inline-block' : 'none';
 	}
-	//Handle button click
-	//USDT--------------------------------------------------------------------------------------------
-	if (clicked_id == "stake-usdt")
-	{
-		$('#modalName').html("Stake USDT");
-		$('#modalDesc').html("Stake USDT here and receive yfUSDT.");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/usdt.PNG");
-	}
-	if (clicked_id == "withdraw-usdt")
-	{
-		$('#modalName').html("Withdraw USDT");
-		$('#modalDesc').html("Withdraw USDT and exit the protocol completely.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/usdt.PNG");
-	}
-	if (clicked_id == "stake-yfusdt")
-	{
-		$('#modalName').html("Stake yfUSDT");
-		$('#modalDesc').html("Once you have exchanged your USDT for yfUSDT send them here to officially start earning emission rewards.");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/usdt.PNG");
-	}
-	if (clicked_id == "withdraw-yfusdt")
-	{
-		$('#modalName').html("Withdraw yfUSDT");
-		$('#modalDesc').html("Withdraw your yfUSDT to stop earning emissions.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/usdt.PNG");
-	}
-	if (clicked_id == "collect-usdt")
-	{
-		input.style.display = "none";
-		$('#modalName').html("Collect CYCL Rewards");
-		$('#modalDesc').html("Collect your CYCL emission rewards!");
-		$('#modalAction').html("Collect!");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}
-	//USDC--------------------------------------------------------------------------------------------
-	if (clicked_id == "stake-usdc")
-	{
-		$('#modalName').html("Stake USDC");
-		$('#modalDesc').html("Stake USDC here and receive yfUSDC.");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/usdc.PNG");
-	}
-	if (clicked_id == "withdraw-usdc")
-	{
-		$('#modalName').html("Withdraw USDC");
-		$('#modalDesc').html("Withdraw USDC and exit the protocol completely.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/usdc.PNG");
-	}
-	if (clicked_id == "stake-yfusdc")
-	{
-		$('#modalName').html("Stake yfUSDC");
-		$('#modalDesc').html("Once you have exchanged your USDC for yfUSDC send them here to officially start earning emission rewards.");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/usdc.PNG");
-	}
-	if (clicked_id == "withdraw-yfusdc")
-	{
-		$('#modalName').html("Withdraw yfUSDC");
-		$('#modalDesc').html("Withdraw your yfUSDC to stop earning emissions.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/usdc.PNG");
-	}
-	if (clicked_id == "collect-usdc")
-	{
-		input.style.display = "none";
-		$('#modalName').html("Collect CYCL Rewards");
-		$('#modalDesc').html("Collect your CYCL emission rewards!");
-		$('#modalAction').html("Collect!");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}
-	//DAI---------------------------------------------------------------------------------------------
-	if (clicked_id == "stake-dai")
-	{
-		$('#modalName').html("Stake DAI");
-		$('#modalDesc').html("Stake DAI here and receive yfDAI.");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/dai.PNG");
-	}
-	if (clicked_id == "withdraw-dai")
-	{
-		$('#modalName').html("Withdraw DAI");
-		$('#modalDesc').html("Withdraw DAI and exit the protocol completely.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/dai.PNG");
-	}
-	if (clicked_id == "stake-yfdai")
-	{
-		$('#modalName').html("Stake yfDAI");
-		$('#modalDesc').html("Once you have exchanged your DAI for yfDAI send them here to officially start earning emission rewards.");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/dai.PNG");
-	}
-	if (clicked_id == "withdraw-yfdai")
-	{
-		$('#modalName').html("Withdraw yfDAI");
-		$('#modalDesc').html("Withdraw your yfDAI to stop earning emissions.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/dai.PNG");
-	}
-	if (clicked_id == "collect-dai")
-	{
-		input.style.display = "none";
-		$('#modalName').html("Collect CYCL Rewards");
-		$('#modalDesc').html("Collect your CYCL emission rewards!");
-		$('#modalAction').html("Collect!");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}	
-	//CYCL---------------------------------------------------------------------------------------------
-	if (clicked_id == "stake-cycl")
-	{
-		$('#modalName').html("Stake CYCL");
-		$('#modalDesc').html("Stake CYCL here to start earning emissions!");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}
-	if (clicked_id == "withdraw-cycl")
-	{
-		$('#modalName').html("Withdraw CYCL");
-		$('#modalDesc').html("Withdraw CYCL and stop earning emissions.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}
-	if (clicked_id == "collect-cycl")
-	{
-		input.style.display = "none";
-		$('#modalName').html("Collect CYCL Rewards");
-		$('#modalDesc').html("Collect your CYCL emission rewards!");
-		$('#modalAction').html("Collect!");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}	
-	//LP---------------------------------------------------------------------------------------------
-	if (clicked_id == "stake-lp")
-	{
-		$('#modalName').html("Stake LP Tokens");
-		$('#modalDesc').html("Stake LP Tokens here to start earning emissions!");
-		$('#modalAction').html("Stake!");
-		$('#modalImage').attr("src", "images/lp.PNG");
-	}
-	if (clicked_id == "withdraw-lp")
-	{
-		$('#modalName').html("Withdraw LP Tokens");
-		$('#modalDesc').html("Withdraw LP and stop earning emissions.");
-		$('#modalAction').html("Withdraw");
-		$('#modalImage').attr("src", "images/lp.PNG");
-	}
-	if (clicked_id == "collect-lp")
-	{
-		input.style.display = "none";
-		$('#modalName').html("Collect CYCL Rewards");
-		$('#modalDesc').html("Collect your CYCL emission rewards!");
-		$('#modalAction').html("Collect!");
-		$('#modalImage').attr("src", "images/cycl.PNG");
-	}
-	if (clicked_id == "modalAction")
-	{
+
+	if (clickedId == "modalAction") {
 		ethereum.send('eth_requestAccounts');
 	}
-	if (clicked_id == "status")
-	{
+
+	if (clickedId == "status") {
 		ethereum.send('eth_requestAccounts');
 		updateWallet();
 	}
