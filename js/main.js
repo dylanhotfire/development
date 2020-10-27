@@ -1,10 +1,11 @@
 //Handle Wallet connection--------------------------------------------------------------------------
-window.addEventListener("load", function () {
-  updateWallet();
+window.addEventListener('load', function() {
+	updateWallet();
+	updateView();
 });
 
 var web3js; // a variable to store local web3 object
-let tracker = 0;
+let tracker, tracker2 = 0;
 let account = null;
 let walletAddress = null;
 function updateWallet() {
@@ -26,6 +27,18 @@ function updateWallet() {
   } else $("#status").html("Metamask Not Installed");
   tracker++;
   setTimeout(updateWallet, 500); // callback
+}
+
+let marginAMT = 0;
+function updateView() {
+	marginAMT = (0.4564687*$(window).width()) - 580;
+	if (marginAMT < 10) {marginAMT = 10;}
+	$('.grid-stack').css("margin-left", marginAMT);
+	$('.grid-stack').css("margin-right", marginAMT);
+	//$('.grid-stack').css("height", $(window).height());
+	//alert($('.grid-stack').css("height"));
+    tracker2++;
+    setTimeout(updateView, 100); // callback
 }
 
 //ABIs-----------------------------------------------------------------------------------------------
