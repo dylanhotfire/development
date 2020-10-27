@@ -1,0 +1,15 @@
+!**/.eslintrc*
+node_modules*
+dist
+*.svg
+*.ico
+*.json
+.gitignore
+*.md
+*.log
+*.lock
+.eslintrc.js
+babel.config.js
+webpack.config.js
+coverage
+output
