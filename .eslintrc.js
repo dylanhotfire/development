@@ -59,6 +59,12 @@ module.exports = {
         tsx: "never",
       },
     ],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
   settings: {
     "import/resolver": {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const Test: React.FunctionComponent<{}> = () => { 
-      return (<h1>TESTING</h1>);
-  };
+const Test: React.FunctionComponent<{}> = () => {
+  return <h1>TESTINGTESTINGTESTINGTESTINGTESTINGTESTINGTESTINGTESTINGTESTINGTESTING</h1>;
+};
 
 export default Test;
